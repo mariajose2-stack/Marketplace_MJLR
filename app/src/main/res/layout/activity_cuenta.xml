@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F5"
+    tools:context="com.example.marketplace.Cuenta">
+    <!-- AppBar (Barra Superior) -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/black"
+            app:title="Cuenta"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido Principal: ScrollView permite que la pantalla se desplace -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EB87A9"
+            android:paddingBottom="16dp">
+
+            <!-- Título Perfil -->
+            <TextView
+                android:id="@+id/tv_titulo_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Perfil de usuario"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Imagen de Perfil (usando CardView para hacerlo circular) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_perfil"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_titulo_perfil">
+
+                <ImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Foto de perfil del usuario"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/usuario1" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECCIÓN DE INFORMACIÓN -->
+            <TextView
+                android:id="@+id/tv_seccion_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Información"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_perfil" />
+
+            <!-- Contenedor para la Información -->
+            <GridLayout
+                android:id="@+id/grid_informacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:background="#EB87A9"
+                android:columnCount="2"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_seccion_info">
+
+                <!-- Fila 1: Nombres -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Nombres:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_nombres"
+                    style="@style/PerfilValor"
+                    android:textColor="#070101"
+                    tools:text="Marco Antonio Barón Effio" />
+
+                <!-- Fila 2: Email -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Email:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_email"
+                    style="@style/PerfilValor"
+                    android:textColor="#070101"
+                    tools:text="marco@gmail.com" />
+
+                <!-- Fila 3: Fecha de Nacimiento -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Fecha de nac:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_nacimiento"
+                    style="@style/PerfilValor"
+                    android:textColor="#070101"
+                    tools:text="01/01/1990" />
+
+                <!-- Fila 4: Miembro desde -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Miembro desde:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_miembro"
+                    style="@style/PerfilValor"
+                    android:textColor="#0D0B0B"
+                    tools:text="16/10/2023" />
+
+                <!-- Fila 5: Teléfono -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Teléfono:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_telefono"
+                    style="@style/PerfilValor"
+                    android:textColor="#070101"
+                    tools:text="+56 9 1234 5678" />
+
+                <!-- Fila 6: Estado de Cuenta -->
+                <TextView
+                    style="@style/PerfilLabel"
+                    android:text="Estado de cuenta:"
+                    android:textColor="#070101" />
+
+                <TextView
+                    android:id="@+id/tv_valor_estado"
+                    style="@style/PerfilValor"
+                    android:textColor="#070101"
+                    tools:text="Verificado" />
+
+            </GridLayout>
+
+
+            <!-- SECCIÓN DE OPCIONES -->
+            <TextView
+                android:id="@+id/tv_seccion_opciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Opciones"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grid_informacion" />
+
+            <!-- Contenedor Vertical de Botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tv_seccion_opciones">
+
+                <!-- Botón 1: EDITAR PERFIL -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_editar_perfil"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="EDITAR PERFIL"
+                    android:textColorLink="#070101"
+                    app:backgroundTint="#070101"
+                    app:icon="@android:drawable/ic_menu_edit" />
+
+                <!-- Botón 2: CAMBIAR PASSWORD -->
+
+                <!-- Botón 3: ELIMINAR MIS ANUNCIOS -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cambiar_password"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="CAMBIAR PASSWORD"
+                    app:backgroundTint="#070101"
+                    app:icon="@android:drawable/ic_lock_lock" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_eliminar_anuncios"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="ELIMINAR MIS ANUNCIOS"
+                    app:backgroundTint="#070101"
+                    app:icon="@android:drawable/ic_input_delete" />
+
+                <!-- Botón 4: CERRAR SESIÓN -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cerrar_sesion"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="CERRAR SESIÓN"
+                    app:icon="@android:drawable/ic_delete" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Barra de Navegación Inferior  -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view_cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:elevation="8dp" />
+
+    <!-- FAB Central -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_publicar_cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Publicar un nuevo producto"
+        app:backgroundTint="@color/black"
+        app:elevation="12dp"
+        app:layout_anchor="@id/bottom_navigation_view_cuenta"
+        app:layout_anchorGravity="top|center"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@android:color/white" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
